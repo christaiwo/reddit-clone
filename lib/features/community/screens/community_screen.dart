@@ -53,8 +53,15 @@ class _CommunityScreenState extends ConsumerState<CommunityScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
+                backgroundColor: Colors.blue,
               ),
-              child: const Text('Create Community'),
+              child: const Text(
+                'Create Community',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                ),
+              ),
             )
           ],
         ),
