@@ -5,14 +5,14 @@ class Community {
   final String name;
   final String banner;
   final String avatar;
-  final List<String> memebers;
+  final List<String> members;
   final List<String> mods;
   Community({
     required this.id,
     required this.name,
     required this.banner,
     required this.avatar,
-    required this.memebers,
+    required this.members,
     required this.mods,
   });
 
@@ -21,7 +21,7 @@ class Community {
     String? name,
     String? banner,
     String? avatar,
-    List<String>? memebers,
+    List<String>? members,
     List<String>? mods,
   }) {
     return Community(
@@ -29,7 +29,7 @@ class Community {
       name: name ?? this.name,
       banner: banner ?? this.banner,
       avatar: avatar ?? this.avatar,
-      memebers: memebers ?? this.memebers,
+      members: members ?? this.members,
       mods: mods ?? this.mods,
     );
   }
@@ -41,7 +41,7 @@ class Community {
     result.addAll({'name': name});
     result.addAll({'banner': banner});
     result.addAll({'avatar': avatar});
-    result.addAll({'memebers': memebers});
+    result.addAll({'members': members});
     result.addAll({'mods': mods});
 
     return result;
@@ -53,14 +53,14 @@ class Community {
       name: map['name'] ?? '',
       banner: map['banner'] ?? '',
       avatar: map['avatar'] ?? '',
-      memebers: List<String>.from(map['memebers']),
+      members: List<String>.from(map['members']),
       mods: List<String>.from(map['mods']),
     );
   }
 
   @override
   String toString() {
-    return 'Community(id: $id, name: $name, banner: $banner, avatar: $avatar, memebers: $memebers, mods: $mods)';
+    return 'Community(id: $id, name: $name, banner: $banner, avatar: $avatar, members: $members, mods: $mods)';
   }
 
   @override
@@ -72,7 +72,7 @@ class Community {
         other.name == name &&
         other.banner == banner &&
         other.avatar == avatar &&
-        listEquals(other.memebers, memebers) &&
+        listEquals(other.members, members) &&
         listEquals(other.mods, mods);
   }
 
@@ -82,7 +82,7 @@ class Community {
         name.hashCode ^
         banner.hashCode ^
         avatar.hashCode ^
-        memebers.hashCode ^
+        members.hashCode ^
         mods.hashCode;
   }
 }

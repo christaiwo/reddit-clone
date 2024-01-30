@@ -1,9 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:reddit_clone/core/constants/firebase_constants.dart';
 import 'package:reddit_clone/core/failure.dart';
+import 'package:reddit_clone/core/providers/firebase_providers.dart';
 import 'package:reddit_clone/core/type_defs.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:reddit_clone/models/community_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final CommunityRepositoryProvider = Provider((ref) {
+  return CommunityRepository(fireStore: ref.watch(fireStoreProvider));
+});
 
 class CommunityRepository {
   final FirebaseFirestore _fireStore;
