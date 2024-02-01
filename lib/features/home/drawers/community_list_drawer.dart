@@ -8,8 +8,12 @@ import 'package:routemaster/routemaster.dart';
 class CommunityListDrawer extends ConsumerWidget {
   const CommunityListDrawer({super.key});
 
-  void navigateCreateCommunity(BuildContext context) {
+  void navigateToCreateCommunity(BuildContext context) {
     Routemaster.of(context).push('/create-community');
+  }
+
+  void navigateToCommunity(BuildContext context, String name) {
+    Routemaster.of(context).push('/r/$name');
   }
 
   @override
@@ -21,7 +25,7 @@ class CommunityListDrawer extends ConsumerWidget {
             ListTile(
               leading: const Icon(Icons.add),
               title: const Text('Create Community'),
-              onTap: () => navigateCreateCommunity(context),
+              onTap: () => navigateToCreateCommunity(context),
             ),
             ref.watch(userCommunitiesProvider).when(
                   data: (communities) => Expanded(
@@ -34,7 +38,10 @@ class CommunityListDrawer extends ConsumerWidget {
                             backgroundImage: NetworkImage(community.avatar),
                           ),
                           title: Text('/r${community.name}'),
-                          onTap: () {},
+                          onTap: () => navigateToCommunity(
+                            context,
+                            community.name,
+                          ),
                         );
                       },
                     ),
